@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace ApiCatalog.Models;
 [Table("Products")]
@@ -22,5 +23,6 @@ public class Product
     public int Stock {get; set;}
     public DateTime DateRegistration {get; set;}
     public int CategoryId {get;set;}
+    [JsonIgnore]
     public Category? Category{get; set;}            
 }
