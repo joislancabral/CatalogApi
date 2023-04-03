@@ -14,8 +14,8 @@ options.JsonSerializerOptions
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 string? MySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AppDbContext>(options => options.
-UseMySql(MySqlConnection, ServerVersion.AutoDetect(MySqlConnection)));
+builder.Services.AddDbContext<AppDbContext>(options => options
+.UseMySql(MySqlConnection, ServerVersion.AutoDetect(MySqlConnection)));
 
 
 var app = builder.Build();

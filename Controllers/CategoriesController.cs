@@ -15,7 +15,7 @@ public class CategoriesController : ControllerBase
         _context = context;
     }
 
-    [HttpGet("products")]
+    [HttpGet("categories")]
     public ActionResult<IEnumerable<Category>> GetCategoriesProducts()
     {
          var categories = _context.Categories.AsNoTracking().Include(p => p.Products).ToList();
@@ -37,7 +37,7 @@ public class CategoriesController : ControllerBase
         return categories;
     }
 
-     //View product by id
+     //View category by id
     [HttpGet("{id:int}", Name="GetCategory")]
     public ActionResult<Category> Get(int id)
     {
@@ -49,7 +49,7 @@ public class CategoriesController : ControllerBase
         return Ok(category);
     }
 
-    //Create product
+    //Create category
     [HttpPost]
     public ActionResult Post(Category category)
     {
@@ -63,7 +63,7 @@ public class CategoriesController : ControllerBase
         return new CreatedAtRouteResult("GetCategory", new {id = category.CategoryId}, category);
     }
 
-    //Modify produt
+    //Modify category
     [HttpPut("{id:int}")]
     public ActionResult Put(int id, Category category)
     {
@@ -77,7 +77,7 @@ public class CategoriesController : ControllerBase
         return Ok(category);
     }
 
-     //Delete product
+     //Delete category
     [HttpDelete("{id:int}")]
     public ActionResult Delete(int id)
     {
